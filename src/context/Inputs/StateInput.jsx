@@ -1,5 +1,5 @@
 const StateInput = {
-	activeInput: '',
+	activeInput: '0',
 	items: [
 		{
 			id: 1,
@@ -7,6 +7,7 @@ const StateInput = {
 			bold: false,
 			style: false,
 			underline: false,
+			colorText: "#000",
 		},
 		{
 			id: 2,
@@ -14,6 +15,7 @@ const StateInput = {
 			bold: false,
 			style: false,
 			underline: false,
+			colorText: "#000",
 			
 
 		},
@@ -23,7 +25,8 @@ const StateInput = {
 			bold: false,
 			style: false,
 			underline: false,
-
+			colorText: "#000",
+			
 		},
 	]
 }

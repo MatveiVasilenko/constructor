@@ -47,9 +47,9 @@ export default React.memo(() => {
 						        >
 						          <div 
 						          	style={{
-						          		display: 'inline-block',
-						          		width: '100px',
-						          		color: 'red',
+						          		display: 'block',
+						          		width: '200px',
+						          		color: input.colorText,
 						          		fontWeight: !input.bold ? '400' : '700',
 						          		fontStyle: !input.style ? 'normal' : 'italic',
 						          		textDecoration: !input.underline ? 'none' : 'underline',

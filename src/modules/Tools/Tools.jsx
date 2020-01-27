@@ -1,6 +1,7 @@
 import React from 'react'
 import {ContextTools} from './../../context/Tools/ContextTools.jsx'
 import {ContextInput} from './../../context/Inputs/ContextInput.jsx'
+import { SketchPicker } from 'react-color'
 
 
 export default React.memo(() => {
@@ -8,7 +9,9 @@ export default React.memo(() => {
 	const {...stateTools} = React.useContext(ContextTools)
 	const EnableFlag = stateTools.state.EnableFlag
 
-	const {dispatch} = React.useContext(ContextInput)
+	const {state, dispatch} = React.useContext(ContextInput)
+
+	console.log(state)
 
 	const changeBold = () => {
 		dispatch({
@@ -26,11 +29,24 @@ export default React.memo(() => {
 		})
 	}
 
+	const handleChangeComplete = (color) => {
+		dispatch({
+			type: 'CHANGE_COLOR_TEXT',
+			payload: {
+				color: color.hex
+			}
+		})
+	}
+
 	return (
 			<div>
 				<button onClick={changeBold} disabled={EnableFlag}>B</button>
 				<button onClick={changeStyle} disabled={EnableFlag}>I</button>
 				<button onClick={changeUnderline} disabled={EnableFlag}>U</button>
+				<SketchPicker
+					color={state.items[state.activeInput].colorText}
+       				onChange={ handleChangeComplete }
+				/>
 			</div>
 		)
 })

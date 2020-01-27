@@ -1,6 +1,18 @@
 const ReducerInput = (state, action) => {
 
     switch(action.type) {
+        case 'ADD_INPUT' :
+        const newItems = {id: state.items + 1,
+            text: 'Test item1',
+            bold: false,
+            style: false,
+            underline: false,
+            colorText: "#000",}
+        state.items.push(newItems)
+        console.log(state)
+        return {
+            ...state
+        } 
     	case 'CHANGE_TEXT_INPUT' :
     	state.items[action.payload.id - 1].text = action.payload.value
     	return {
@@ -25,7 +37,12 @@ const ReducerInput = (state, action) => {
     	state.items[state.activeInput].underline = !state.items[state.activeInput].underline 
     	return {
     		...state
-    	}  
+    	} 
+        case 'CHANGE_COLOR_TEXT' :
+        state.items[state.activeInput].colorText = action.payload.color
+        return {
+            ...state
+        } 
         default:
             return state
     }

@@ -5,6 +5,12 @@ export default React.memo(() => {
 
 	const {dispatch, ...Inputs} = React.useContext(ContextInput)
 	const stateInputs = Inputs.state.items
+
+	const addInputText = () => {
+		dispatch({
+			type: 'ADD_INPUT'
+		})
+	}
 	
 	return (
 			<div>
@@ -22,9 +28,13 @@ export default React.memo(() => {
 									}
 								})
 							}}
+							style={{
+								display: 'block',
+							}}
 							/>
 				})}
-				
+				<button onClick={addInputText}>Add items</button>
+
 			</div>
 		)
 })
